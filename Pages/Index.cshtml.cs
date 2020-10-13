@@ -21,5 +21,12 @@ namespace myWebApp.Pages
         {
 
         }
+        public void OnPost()
+        {
+            double amount=double.Parse(Request.Form["billamount"]);
+            double tippercent=double.Parse(Request.Form["percentage"]);
+            double tip=(amount*tippercent)/100;
+            ViewData["Tip"]=tip;
+        }
     }
 }
