@@ -1,0 +1,21 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form method="POST">
+   <label for="billamount">Total Bill Amount(Rs.):</label> 
+   <input type="text"id="blamount" name="billamount"placeholder="enter billamount" /><br/><br/>
+   <label for="percentagetip">Percentage Tip (%): </label>
+   <input type="text"id="tippercentage" name="percentage" placeholder="enter tip percentage" /><br/> <br/>
+   <input type="submit" value="Calculate" /><br/><br/>
+   @if (Model.IsPostBack)
+   {
+      <label>Tip=@ViewData["Tip"]</label> 
+   }
+   
+</form>
+</div>

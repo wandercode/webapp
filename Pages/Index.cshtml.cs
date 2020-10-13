@@ -10,6 +10,18 @@ namespace myWebApp.Pages
 {
     public class IndexModel : PageModel
     {
+        private bool isPost=false;
+        public bool IsPostBack
+        {
+            get
+            {
+                return isPost;
+            }
+            set
+            {
+                isPost=value;
+            }
+        }
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -20,6 +32,14 @@ namespace myWebApp.Pages
         public void OnGet()
         {
 
+        }
+        public void OnPost()
+        {
+            isPost=true;
+            double amount=double.Parse(Request.Form["billamount"]);
+            double tippercent=double.Parse(Request.Form["percentage"]);
+            double tip=(amount*tippercent)/100;
+            ViewData["Tip"]=tip;
         }
     }
 }
