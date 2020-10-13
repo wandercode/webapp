@@ -12,6 +12,10 @@
    <label for="percentagetip">Percentage Tip (%): </label>
    <input type="text"id="tippercentage" name="percentage" placeholder="enter tip percentage" /><br/> <br/>
    <input type="submit" value="Calculate" /><br/><br/>
-   <label>Tip=@ViewData["Tip"]</label>
+   @if (Model.IsPostBack)
+   {
+      <label>Tip=@ViewData["Tip"]</label> 
+   }
+   
 </form>
 </div>
